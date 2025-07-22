@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import UserContext from './UserContext';
 import UserDetails from './UserDetails';
 
-function ProfilePage() {
+function UserProfile() {
   const user = useContext(UserContext);
 
   return (
@@ -13,4 +13,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default UserProfile;
