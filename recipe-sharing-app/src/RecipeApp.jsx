@@ -1,5 +1,6 @@
+// src/components/RecipeApp.jsx
 import React, { useState } from 'react';
-import useRecipeStore from './store';
+import useRecipeStore from '../store'; // adjust the path if needed
 
 function RecipeApp() {
   const { recipes, addRecipe, removeRecipe } = useRecipeStore();
@@ -8,7 +9,7 @@ function RecipeApp() {
 
   const handleAdd = () => {
     if (title && description) {
-      addRecipe({ title, description });
+      addRecipe(title, description); // ✅ fixed argument structure
       setTitle('');
       setDescription('');
     }
