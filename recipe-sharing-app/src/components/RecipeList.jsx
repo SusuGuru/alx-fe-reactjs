@@ -1,10 +1,18 @@
 // src/components/RecipeList.jsx
 import React from 'react';
-import { Link } from 'react-router-dom'; // ✅ Add this import
+import { Link } from 'react-router-dom'; // ✅ Needed for routing
 import useRecipeStore from '../recipeStore';
 
 const RecipeList = () => {
-  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
+  const { filteredRecipes, favorites, addFavorite, removeFavorite } = useRecipeStore();
+
+  const toggleFavorite = (id) => {
+    if (favorites.includes(id)) {
+      removeFavorite(id);
+    } else {
+      addFavorite(id);
+    }
+  };
 
   return (
     <div>
@@ -17,7 +25,10 @@ const RecipeList = () => {
             <h3>
               <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
             </h3>
-            <p>{recipe.description}</p>
+            <p>{recipe.description || recipe.content}</p>
+            <button onClick={() => toggleFavorite(recipe.id)}>
+              {favorites.includes(recipe.id) ? '★ Unfavorite' : '☆ Favorite'}
+            </button>
           </div>
         ))
       )}
