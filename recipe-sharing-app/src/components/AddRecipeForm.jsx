@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import useRecipeStore from './recipeStore';
+import { useState } from 'react';
+import { useRecipeStore } from './recipeStore';
 
 const AddRecipeForm = () => {
   const [title, setTitle] = useState('');
@@ -9,7 +9,6 @@ const AddRecipeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title || !description) return;
-
     addRecipe({ title, description });
     setTitle('');
     setDescription('');
@@ -20,15 +19,17 @@ const AddRecipeForm = () => {
       <h2>Add a New Recipe</h2>
       <input
         type="text"
-        placeholder="Recipe title"
+        placeholder="Recipe Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        required
       />
       <br />
       <textarea
-        placeholder="Recipe description"
+        placeholder="Recipe Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+        required
       />
       <br />
       <button type="submit">Add Recipe</button>
