@@ -1,17 +1,19 @@
-import { useState } from 'react';
-import { useRecipeStore } from './recipeStore';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useRecipeStore from '../recipeStore';
 
 const AddRecipeForm = () => {
   const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [content, setContent] = useState('');
   const addRecipe = useRecipeStore((state) => state.addRecipe);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title || !description) return;
-    addRecipe({ title, description });
-    setTitle('');
-    setDescription('');
+    if (title && content) {
+      addRecipe(title, content);
+      navigate('/');
+    }
   };
 
   return (
@@ -22,16 +24,12 @@ const AddRecipeForm = () => {
         placeholder="Recipe Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        required
       />
-      <br />
       <textarea
-        placeholder="Recipe Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        required
-      />
-      <br />
+        placeholder="Recipe Instructions"
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      ></textarea>
       <button type="submit">Add Recipe</button>
     </form>
   );
