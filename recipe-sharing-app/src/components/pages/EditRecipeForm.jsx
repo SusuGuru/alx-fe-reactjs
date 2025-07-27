@@ -1,9 +1,9 @@
-// src/pages/EditRecipeForm.jsx
+// src/components/EditRecipeForm.jsx
 import React, { useState } from 'react';
 import useRecipeStore from '../recipeStore';
 
 const EditRecipeForm = ({ recipe }) => {
-  const updateRecipe = useRecipeStore(state => state.updateRecipe);
+  const updateRecipe = useRecipeStore((state) => state.updateRecipe);
   const [title, setTitle] = useState(recipe.title);
   const [description, setDescription] = useState(recipe.description);
 
@@ -18,12 +18,14 @@ const EditRecipeForm = ({ recipe }) => {
       <input
         type="text"
         value={title}
-        onChange={e => setTitle(e.target.value)}
+        onChange={(e) => setTitle(e.target.value)}
+        required
       />
       <br />
       <textarea
         value={description}
-        onChange={e => setDescription(e.target.value)}
+        onChange={(e) => setDescription(e.target.value)}
+        required
       />
       <br />
       <button type="submit">Update Recipe</button>
