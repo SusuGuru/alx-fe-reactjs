@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { searchUsers } from "../services/githubService"; // Make sure path is correct
+import { searchUsers } from "../services/githubService"; // Ensure this path is correct
 
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -29,7 +29,7 @@ const Search = () => {
       } else {
         setUsers(data);
       }
-    } catch (err) {
+    } catch {
       setError("Looks like we cant find the user");
     } finally {
       setLoading(false);
@@ -69,11 +69,11 @@ const Search = () => {
         </button>
       </form>
 
-      {/* Loading / Error */}
+      {/* Loading / Error Messages */}
       {loading && <p className="text-center text-gray-400">Loading...</p>}
       {error && <p className="text-center text-red-500">{error}</p>}
 
-      {/* Results */}
+      {/* User Results */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {users.map((user) => (
           <div

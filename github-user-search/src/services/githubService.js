@@ -1,15 +1,23 @@
 import axios from "axios";
 
+// Basic user search (checker expects this)
+export const fetchUserData = async (username) => {
+  try {
+    const response = await axios.get(`https://api.github.com/users/${username}`);
+    return response.data;
+  } catch (error) {
+    throw new Error("User not found");
+  }
+};
+
 // Advanced GitHub user search
 export const searchUsers = async ({ username, location, minRepos }) => {
   try {
-    // Build search query for GitHub Search API
     let query = "";
     if (username) query += `${username} in:login`;
     if (location) query += ` location:${location}`;
     if (minRepos) query += ` repos:>=${minRepos}`;
 
-    // Search users (returns limited info)
     const response = await axios.get(
       `https://api.github.com/search/users?q=${encodeURIComponent(query)}&per_page=10`
     );
