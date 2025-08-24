@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react"; // include React
 import { fetchUserData } from "../services/githubService";
 
 const Search = () => {
@@ -9,7 +9,8 @@ const Search = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    if (!username.trim()) return; // prevent empty search
+    if (!username.trim()) return; // prevent empty input
+
     setLoading(true);
     setError(null);
     setUser(null);
@@ -17,9 +18,9 @@ const Search = () => {
     try {
       const data = await fetchUserData(username.trim());
       setUser(data);
-      setUsername(""); // optional: reset input
+      setUsername(""); // optional reset
     } catch (err) {
-      setError(err.message);
+      setError("Looks like we cant find the user"); // exact string
     } finally {
       setLoading(false);
     }
@@ -38,7 +39,7 @@ const Search = () => {
       </form>
 
       {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {error && <p>Looks like we cant find the user</p>}
 
       {user && (
         <div className="user-card">
