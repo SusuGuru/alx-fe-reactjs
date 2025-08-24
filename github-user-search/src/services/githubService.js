@@ -37,4 +37,3 @@ export const searchUsers = async ({ username, location, minRepos }) => {
     throw new Error("User not found");
   }
 };
-src/components/Search.jsx doesn't contain: ["fetchUserData"]
