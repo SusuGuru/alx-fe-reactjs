@@ -1,26 +1,14 @@
-import { useState } from 'react';
-import './App.css';
-import LogoLinks from './components/LogoLinks';
+import './styles/App.css';
+import Search from './components/Search';
+import LogoLinks from './components/LogoLinks.jsx'; // optional
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <LogoLinks />
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="App">
+      <LogoLinks /> {/* optional */}
+      <h1>GitHub User Search</h1>
+      <Search />
+    </div>
   );
 }
 

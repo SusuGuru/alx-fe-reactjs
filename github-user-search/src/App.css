@@ -1,42 +1,42 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.App {
   text-align: center;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.search-container input {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  width: 200px;
+}
+
+.search-container button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.user-card {
+  margin-top: 1rem;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.user-card img {
+  border-radius: 50%;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  height: 40px;
+  margin: 0 10px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo.react {
+  animation: spin infinite 20s linear;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
