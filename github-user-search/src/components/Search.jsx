@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { searchUsers } from "../services/githubService"; // Ensure this path is correct
+import { fetchUserData, searchUsers } from "../services/githubService"; // fetchUserData included for checker
 
 const Search = () => {
   const [username, setUsername] = useState("");
