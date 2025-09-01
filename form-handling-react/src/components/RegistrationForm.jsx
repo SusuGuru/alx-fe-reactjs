@@ -29,6 +29,7 @@ function RegistrationForm() {
       return;
     }
     console.log('Form submitted:', formData);
+    // You can send data to API here
   };
 
   return (
@@ -38,7 +39,7 @@ function RegistrationForm() {
         <input
           type="text"
           name="username"
-          value={formData.username}      {/* <-- Controlled value */}
+          value={formData.username}       {/* controlled value */}
           onChange={handleChange}
         />
         {errors.username && <span style={{ color: 'red' }}>{errors.username}</span>}
@@ -49,7 +50,7 @@ function RegistrationForm() {
         <input
           type="email"
           name="email"
-          value={formData.email}        {/* <-- Controlled value */}
+          value={formData.email}          {/* controlled value */}
           onChange={handleChange}
         />
         {errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}
@@ -60,7 +61,7 @@ function RegistrationForm() {
         <input
           type="password"
           name="password"
-          value={formData.password}     {/* <-- Controlled value */}
+          value={formData.password}       {/* controlled value */}
           onChange={handleChange}
         />
         {errors.password && <span style={{ color: 'red' }}>{errors.password}</span>}
