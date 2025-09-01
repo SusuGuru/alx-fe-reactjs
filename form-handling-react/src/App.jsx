@@ -22,7 +22,7 @@ function App() {
         <FormikForm />
       </section>
 
-      {/* Optional: Keep the counter for demo */}
+      {/* Optional: Counter demo */}
       <section className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
